@@ -81,9 +81,9 @@ async function loadRestaurant(tipo) {
 
 // 🔥 NOVA FUNÇÃO: chamada ao clicar em um prato
 function handleDishClick(prato) {
-  console.log("Prato selecionado:", prato);
-  // Futuro: redirecionar para página de checkout
-  // window.location.href = `checkout.html?item=${encodeURIComponent(prato.item)}`;
+  // ✅ Redireciona para checkout.html com dados do prato
+  const url = `../checkout/checkout.html?item=${encodeURIComponent(prato.item)}&price=${encodeURIComponent(prato.price)}&image=${encodeURIComponent(prato.image)}&desc=${encodeURIComponent(prato.description)}`;
+  window.location.href = url;
 }
 
 // Função para transição ao sair da página
