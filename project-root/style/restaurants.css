@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playwrite+CU:wght@100..400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s linear;
+  text-transform: capitalize;
+}
+
+body {
+  background-color: #1A1110;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+}
+
+/* Container principal */
+.restaurant-container {
+  max-width: 900px;
+  margin: 4em auto;
+  padding: 2em;
+  background-color: #312c2a;
+  border-radius: 12px;
+  box-shadow: rgba(0,0,0,0.6) 0 5px 15px;
+}
+
+/* Título */
+.restaurant-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: "Playwrite CU", cursive;
+  color: orangered;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+/* Descrição */
+.restaurant-description {
+  font-size: 1.2em;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+/* Imagem */
+.restaurant-image {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  border: 3px solid chocolate;
+}
+
+/* Menu */
+.restaurant-menu {
+  list-style: none;
+  padding: 0;
+  margin: 2em 0;
+  display: grid;
+  gap: 1em;
+}
+
+.restaurant-menu li {
+  background-color: #ffeedc;
+  color: #000;
+  padding: 1em;
+  border-radius: 8px;
+  border-left: 6px solid orangered;
+  font-size: 1.1em;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0,0,0,0.35) 0 3px 8px;
+}
+
+/* Horários */
+.restaurant-hours {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: #aaa;
+}
+
+/* Localização */
+.restaurant-location {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: #aaa;
+}
+
+/* Contato */
+.restaurant-contact {
+  font-size: 1em;
+  margin-bottom: 1em;
+  color: #aaa;
+}
+
+/* Avaliação */
+.restaurant-rating {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: #f4a261; /* dourado para estrelas */
+}
+
+/* Delivery */
+.restaurant-delivery {
+  font-size: 1em;
+  font-style: italic;
+  margin-bottom: 1em;
+  text-align: center;
+  color: #2a9d8f; /* verde para indicar disponível */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .restaurant-container {
+    padding: 1.5em;
+  }
+
+  .restaurant-title {
+    font-size: 2em;
+  }
+
+  .restaurant-description {
+    font-size: 1em;
+  }
+
+  .restaurant-image {
+    max-height: 250px;
+  }
+
+  .restaurant-menu li {
+    font-size: 1em;
+    padding: 0.8em;
+  }
+}
+body {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
