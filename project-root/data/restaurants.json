@@ -4,8 +4,18 @@
     "description": "Massas frescas e pizzas artesanais.",
     "image": "img/pic4.jpg",
     "menu": [
-      { "item": "Pizza Margherita", "price": "R$ 35" },
-      { "item": "Spaghetti Carbonara", "price": "R$ 42" }
+      {
+        "item": "Pizza Margherita",
+        "price": "R$ 35",
+        "description": "Pizza clássica com molho de tomate fresco, queijo mozzarella e folhas de manjericão.",
+        "image": "img/dishes/italian2.jpg"
+      },
+      {
+        "item": "Spaghetti Carbonara",
+        "price": "R$ 42",
+        "description": "Spaghetti com molho cremoso de ovos, queijo parmesão e pancetta crocante.",
+        "image": "img/dishes/italian1.jpg"
+      }
     ],
     "hours": "Seg-Sáb: 11h - 23h",
     "location": "Rua das Flores, 123 - Fortaleza",
@@ -16,13 +26,24 @@
     "rating": 4.7,
     "delivery": true
   },
+
   "Japanese": {
     "title": "Restaurante Japonês",
     "description": "Sushis e sashimis preparados na hora.",
     "image": "img/pic6.jpg",
     "menu": [
-      { "item": "Sushi Combo", "price": "R$ 50" },
-      { "item": "Yakissoba", "price": "R$ 38" }
+      {
+        "item": "Sushi Combo",
+        "price": "R$ 50",
+        "description": "Seleção de sushis e sashimis frescos com molho shoyu e gengibre.",
+        "image": "img/dishes/japonese1.jpg"
+      },
+      {
+        "item": "Ramen Tradicional",
+        "price": "R$ 38",
+        "description": "Macarrão japonês em caldo rico, com carne de porco, ovo e vegetais.",
+        "image": "img/dishes/japonese2.jpg"
+      }
     ],
     "hours": "Seg-Dom: 12h - 22h",
     "location": "Av. Central, 456 - Fortaleza",
@@ -33,13 +54,24 @@
     "rating": 4.8,
     "delivery": true
   },
+
   "Brazilian": {
     "title": "Restaurante Brasileiro",
     "description": "Feijoada e churrasco com sabor caseiro.",
     "image": "img/pic4.jpg",
     "menu": [
-      { "item": "Feijoada Completa", "price": "R$ 45" },
-      { "item": "Picanha na Brasa", "price": "R$ 60" }
+      {
+        "item": "Feijoada Completa",
+        "price": "R$ 45",
+        "description": "Prato típico com feijão preto, carnes defumadas, arroz e couve refogada.",
+        "image": "img/dishes/brazilian2.jpg"
+      },
+      {
+        "item": "Picanha na Brasa",
+        "price": "R$ 60",
+        "description": "Corte nobre de picanha grelhada, acompanhada de arroz, feijão e farofa.",
+        "image": "img/dishes/brazilian1.jpg"
+      }
     ],
     "hours": "Ter-Dom: 11h - 21h",
     "location": "Praça da República, 789 - Fortaleza",
@@ -50,13 +82,24 @@
     "rating": 4.6,
     "delivery": false
   },
+
   "Mexican": {
     "title": "Restaurante Mexicano",
     "description": "Tacos e burritos apimentados.",
-    "image": "img/pic4.jpg",
+    "image": "img/pic7.jpg",
     "menu": [
-      { "item": "Taco de Carne", "price": "R$ 30" },
-      { "item": "Burrito Especial", "price": "R$ 40" }
+      {
+        "item": "Taco de Carne",
+        "price": "R$ 30",
+        "description": "Tacos recheados com carne temperada, alface, tomate e queijo.",
+        "image": "img/dishes/mexican2.jpg"
+      },
+      {
+        "item": "Quesadilla Especial",
+        "price": "R$ 40",
+        "description": "Tortilla recheada com queijo derretido, acompanhada de molhos e batatas fritas.",
+        "image": "img/dishes/mexican1.jpg"
+      }
     ],
     "hours": "Seg-Sáb: 13h - 23h",
     "location": "Rua México, 321 - Fortaleza",

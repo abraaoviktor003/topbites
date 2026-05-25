@@ -14,16 +14,36 @@ async function loadRestaurant(tipo) {
     document.querySelector(".restaurant-description").textContent =
       r.description;
 
-    // Atualiza imagem
+    // Atualiza imagem principal do restaurante
     const img = document.querySelector(".restaurant-image");
     if (img) img.src = "../" + r.image;
 
-    // Renderiza menu
+    // Renderiza menu como cards
     const menuBox = document.querySelector(".restaurant-menu");
     if (menuBox) {
       menuBox.innerHTML = r.menu
-        .map((item) => `<li>${item.item} - ${item.price}</li>`)
+        .map(
+          (item, index) => `
+        <div class="menu-card" data-index="${index}">
+          <img src="../${item.image}" alt="${item.item}">
+          <div class="menu-info">
+            <h3>${item.item}</h3>
+            <p>${item.description}</p>
+            <span class="price">${item.price}</span>
+          </div>
+        </div>
+      `,
+        )
         .join("");
+
+      // 🔥 MODIFICAÇÃO: adiciona evento de clique em cada card
+      document.querySelectorAll(".menu-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const index = card.getAttribute("data-index");
+          const prato = r.menu[index];
+          handleDishClick(prato);
+        });
+      });
     }
 
     // Horários
@@ -57,6 +77,13 @@ async function loadRestaurant(tipo) {
   } catch (error) {
     console.error("Erro ao carregar restaurante:", error);
   }
+}
+
+// 🔥 NOVA FUNÇÃO: chamada ao clicar em um prato
+function handleDishClick(prato) {
+  console.log("Prato selecionado:", prato);
+  // Futuro: redirecionar para página de checkout
+  // window.location.href = `checkout.html?item=${encodeURIComponent(prato.item)}`;
 }
 
 // Função para transição ao sair da página
