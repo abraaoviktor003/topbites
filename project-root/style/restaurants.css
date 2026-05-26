@@ -22,6 +22,8 @@ body {
   background-color: #312c2a;
   border-radius: 12px;
   box-shadow: rgba(0,0,0,0.6) 0 5px 15px;
+  position: relative;
+  z-index: 1;
 }
 
 /* Título */
@@ -37,9 +39,10 @@ body {
 /* Descrição */
 .restaurant-description {
   font-size: 1.2em;
-  color: #ccc;
+  color: #f4a261;
   text-align: center;
   margin-bottom: 1.5em;
+  font-style: italic;
 }
 
 /* Imagem principal */
@@ -66,11 +69,13 @@ body {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(0,0,0,0.5) 0 5px 15px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .menu-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px); 
+  box-shadow: rgba(0,0,0,0.7) 0 8px 20px;
 }
 
 .menu-card img {
@@ -102,15 +107,107 @@ body {
   font-size: 1.1em;
 }
 
-/* Infos extras */
+/* 🔥 Carrinho fixo ajustado */
+.cart {
+  position: fixed;
+  top: 100px;
+  right: 40px; /* afastado do conteúdo */
+  width: 280px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background-color: #312c2a;
+  border: 2px solid orangered;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: rgba(0,0,0,0.6) 0 5px 15px;
+  color: #fff;
+  z-index: 999;
+}
+
+.cart h2 {
+  font-family: "Playwrite CU", cursive;
+  font-size: 1.5em;
+  color: orangered;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.cart-items {
+  margin-bottom: 1em;
+}
+
+.cart-actions button {
+  width: 100%;
+  background-color: orangered;
+  color: #fff;
+  font-size: 1.1em;
+  padding: 0.6em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cart-actions button:hover {
+  background-color: #f4a261;
+}
+
+/* Estilos dos itens do carrinho */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1A1110;
+  padding: 0.5em;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
+
+.cart-item span {
+  flex: 1;
+  color: #fff;
+}
+
+.cart-item button {
+  background-color: orangered;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3em 0.6em;
+  margin-left: 0.3em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cart-item button:hover {
+  background-color: #f4a261;
+}
+
+/* 🔥 Infos extras reconstruídas */
+.restaurant-extra {
+  margin-top: 2em;
+  padding: 1.5em;
+  background-color: #1A1110;
+  border-radius: 10px;
+  box-shadow: rgba(0,0,0,0.4) 0 4px 12px;
+}
+
+.restaurant-extra h3 {
+  font-family: "Playwrite CU", cursive;
+  font-size: 1.6em;
+  color: orangered;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
 .restaurant-hours,
 .restaurant-location,
 .restaurant-contact,
 .restaurant-rating,
 .restaurant-delivery {
-  font-size: 1em;
+  font-size: 1.1em;
   margin-bottom: 0.8em;
-  color: #aaa;
+  color: #ccc;
 }
 
 .restaurant-rating {
@@ -120,11 +217,19 @@ body {
 
 .restaurant-delivery {
   font-style: italic;
-  text-align: center;
   color: #2a9d8f;
 }
 
 /* Responsividade */
+@media (max-width: 900px) {
+  .cart {
+    position: static;
+    width: 100%;
+    margin-top: 2em;
+    max-height: none;
+  }
+}
+
 @media (max-width: 768px) {
   .restaurant-container {
     padding: 1.5em;
@@ -149,24 +254,8 @@ body {
   .menu-info p {
     font-size: 0.9em;
   }
-}
 
-/* Transições de página */
-body {
-  opacity: 1;
-  transition: opacity 0.6s ease;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.6s forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  .restaurant-extra {
+    text-align: center;
+  }
 }

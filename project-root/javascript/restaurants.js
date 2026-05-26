@@ -80,10 +80,73 @@ async function loadRestaurant(tipo) {
 }
 
 // 🔥 NOVA FUNÇÃO: chamada ao clicar em um prato
+let cart = [];
+
 function handleDishClick(prato) {
-  // ✅ Redireciona para checkout.html com dados do prato
-  const url = `../checkout/checkout.html?item=${encodeURIComponent(prato.item)}&price=${encodeURIComponent(prato.price)}&image=${encodeURIComponent(prato.image)}&desc=${encodeURIComponent(prato.description)}`;
-  window.location.href = url;
+  addToCart(prato);
+}
+
+// Adiciona prato ao carrinho
+function addToCart(prato) {
+  const existing = cart.find((item) => item.item === prato.item);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ ...prato, quantity: 1 });
+  }
+  renderCart();
+}
+
+// Renderiza carrinho
+function renderCart() {
+  const cartItemsBox = document.querySelector(".cart-items");
+  const checkoutBtn = document.getElementById("checkout-btn");
+
+  if (!cartItemsBox) return;
+
+  if (cart.length === 0) {
+    cartItemsBox.innerHTML = "<p>Carrinho vazio</p>";
+    if (checkoutBtn) checkoutBtn.style.display = "none";
+    return;
+  }
+
+  cartItemsBox.innerHTML = cart
+    .map(
+      (item, index) => `
+    <div class="cart-item">
+      <span>${item.item} (${item.quantity})</span>
+      <button onclick="updateQuantity(${index}, 1)">+1</button>
+      <button onclick="updateQuantity(${index}, -1)">-1</button>
+      <button onclick="removeFromCart(${index})">Remover</button>
+    </div>
+  `,
+    )
+    .join("");
+
+  if (checkoutBtn) {
+    checkoutBtn.style.display = "block";
+
+    // 🔥 NOVA FUNÇÃO: redireciona ao checkout com carrinho salvo
+    checkoutBtn.onclick = () => {
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.href = "../checkout/checkout.html";
+    };
+  }
+}
+
+// Atualiza quantidade
+function updateQuantity(index, delta) {
+  cart[index].quantity += delta;
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+  renderCart();
+}
+
+// Remove item
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
 }
 
 // Função para transição ao sair da página
